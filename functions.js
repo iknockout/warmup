@@ -117,3 +117,41 @@ buttonElement.onclick = event => {
   outputElement.innerHTML = reverseArray( ['sense.','make', 'all', 'will', 'This'] );
 };
 
+
+////////////////////////////////////////////
+/*  Had a great question today:
+    When to use <button object>.onclick vs. <button object>.addEventListener ?
+    For example, some used myButton.addEventListener() and I used myButton.onclick.
+    
+    buttonElement.onclick (onclick aka JavaScript inline event) can only have one event
+    handler whereas by using buttonElement.addEventListener(), we can have more than one
+    event handler for the same event type (e.g. “click”) for each object (in this
+    case buttonElement).
+ */
+
+/*  For example, if I assign another event handler to buttonElement via onclick --
+
+buttonElement.onclick = event => {
+  outputElement.style.backgroundColor = "yellow";
+}
+
+It will overwrite the above .onclick event handler, i.e.
+outputElement.innerHTML = reverseArray() will never be called and only
+outputElement.style.backgroundColor = "yellow" will get called.
+*/
+
+function eventHandler_one(event) {
+  outputElement.innerHTML = reverseArray( ['sense.','make', 'all', 'will', 'This'] );
+}
+
+function eventHandler_two(event) {
+  outputElement.style.backgroundColor = "yellow";
+}
+
+// uncomment the following two lines when inline events above are commented out
+// myButton.addEventListener("click", eventHandler_one);
+// myButton.addEventListener("click", eventHandler_two);
+
+/* If you want to have more than one event listener for the same event type (e.g. "click")
+   for an object, you can use .addEventListener()
+ */
