@@ -149,8 +149,8 @@ function eventHandler_two(event) {
 }
 
 // uncomment the following two lines when inline events above are commented out
-// myButton.addEventListener("click", eventHandler_one);
-// myButton.addEventListener("click", eventHandler_two);
+// buttonElement.addEventListener("click", eventHandler_one);
+// buttonElement.addEventListener("click", eventHandler_two);
 
 /* If you want to have more than one event listener for the same event type (e.g. "click")
    for an object, you can use .addEventListener()
